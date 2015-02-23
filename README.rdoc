@@ -1,0 +1,21 @@
+  name:string
+  reps:integer
+  sets:integer
+  description:text
+  muscle_group_id:integer
+  difficulty_id:integer
+exercises
+  belongs_to :muscle_goups
+  belongs_to :difficulties
+
+
+  location:string
+muscle_groups
+  has_many :exercises
+  has_many :difficulties, :through => :exercises
+
+
+  level:string
+difficulties
+  has_many :exercises
+  has_many :muscle_groups, :through => :exercises
