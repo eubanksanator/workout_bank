@@ -75,7 +75,7 @@
               Difficulty
             </label>
             <div class="col-sm-10">
-              <%= select_tag :difficulty_id, options_from_collection_for_select(Difficulty.order(:level), :id, :level, @exercise.difficulty_id), :class => "form_control" %>
+              <%= select_tag :difficulty_id, options_from_collection_for_select(Difficulty.all, :id, :level, @exercise.difficulty_id), :class => "form_control" %>
             </div>
           </div>
 

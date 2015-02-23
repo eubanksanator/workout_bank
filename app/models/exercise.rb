@@ -1,6 +1,8 @@
 class Exercise < ActiveRecord::Base
-  validates :name, :reps, :sets, :presence => true, :uniqueness => {:scope => :difficulty}
-  validates :muscle_group, :difficulty, :presence => true
+  validates :reps, :sets, :presence => true
+  validates :name, :presence => true, :uniqueness => { :scope => :difficulty_id}
+  # validates :muscle_groups, :presence => true
+  # validates :difficulties, :presence => true
 
   belongs_to :muscle_groups
   belongs_to :difficulties
