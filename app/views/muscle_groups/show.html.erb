@@ -10,11 +10,14 @@
         <div class="row">
           <div class="col-md-12">
             <dl class="dl-horizontal">
-              <dt>Location</dt>
+              <dt>Muscle</dt>
               <dd><%= @muscle_group.location %></dd>
             <ul>
             <% @muscle_group.exercises.each do |muscle| %>
-              <li><%= muscle.name %></li>
+
+<!-- make the muscle_groups exercises have links to that exercise#show -->
+
+              <li><%= link_to muscle.name, exercise_url%></li>
             <%end %>
             </ul>
             </dl>
