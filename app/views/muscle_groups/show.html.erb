@@ -12,7 +12,11 @@
             <dl class="dl-horizontal">
               <dt>Location</dt>
               <dd><%= @muscle_group.location %></dd>
-
+            <ul>
+            <% @muscle_group.exercises.each do |muscle| %>
+              <li><%= muscle.name %></li>
+            <%end %>
+            </ul>
             </dl>
             <div class="btn-group btn-group-justified">
               <%= link_to muscle_groups_url, :class => "btn btn-primary" do %>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   # Routes for the Difficulty resource:
+
   # CREATE
   get '/difficulties/new',      :controller => 'difficulties', :action => 'new',    :as => 'new_difficulty'
   post '/difficulties',         :controller => 'difficulties', :action => 'create', :as => 'difficulties'

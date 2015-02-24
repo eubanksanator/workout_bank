@@ -35,14 +35,15 @@
           <dt>Sets</dt>
           <dd><%= exercise.sets %></dd>
 
-          <dt>Description</dt>
-          <dd><%= exercise.description %></dd>
 
           <dt>Muscle group</dt>
-          <dd><%= exercise.muscle_group_id %></dd>
+          <dd><%= exercise.muscle_group.location %></dd>
 
           <dt>Difficulty</dt>
-          <dd><%= exercise.difficulty_id %></dd>
+          <dd><%= exercise.difficulty.level %></dd>
+
+          <dt>Description</dt>
+          <dd><%= exercise.description.capitalize %></dd>
 
         </dl>
         <div class="btn-group btn-group-justified">

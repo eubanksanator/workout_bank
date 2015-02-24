@@ -4,6 +4,6 @@ class Exercise < ActiveRecord::Base
   # validates :muscle_groups, :presence => true
   # validates :difficulties, :presence => true
 
-  belongs_to :muscle_groups
-  belongs_to :difficulties
+  belongs_to :muscle_group
+  belongs_to :difficulty
 end
