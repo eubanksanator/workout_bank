@@ -7,6 +7,7 @@ class CreateExercises < ActiveRecord::Migration
       t.text :description
       t.integer :muscle_group_id
       t.integer :difficulty_id
+      t.
 
       t.timestamps
 

@@ -6,4 +6,5 @@ class Exercise < ActiveRecord::Base
 
   belongs_to :muscle_group
   belongs_to :difficulty
+  belongs_to :user
 end

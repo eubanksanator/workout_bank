@@ -1,8 +1,10 @@
+
+
 <div class="page-header">
   <h1>
     Exercises
     <%= link_to new_exercise_url, :class => "btn btn-lg btn-success" do %>
-      <i class="fa fa-plus"></i>
+    <i class="fa fa-plus"></i>
     <% end  %>
   </h1>
 </div>
@@ -18,49 +20,44 @@
 <hr>
 
 <div class="row isotope-container">
-<% @exercises.each do |exercise| %>
+  <% @exercises.each do |exercise| %>
   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Exercise #<%= exercise.id %></h3>
+        <h3 class="panel-title"><%= exercise.muscle_group.location.titleize %></h3>
       </div>
       <div class="panel-body">
+      <table class="table">
+
         <dl>
-          <dt>Name</dt>
-          <dd><%= exercise.name.titleize %></dd>
+          <dd><strong><%= exercise.name.upcase %></dd></strong>
+          <dd class="inline"><strong>Sets </strong> <%= exercise.sets %></dd>
+          <dd class="inline"><strong>Reps </strong><%= exercise.reps %></dd>
 
-          <dt>Reps</dt>
-          <dd><%= exercise.reps %></dd>
-
-          <dt>Sets</dt>
-          <dd><%= exercise.sets %></dd>
-
-
-          <dt>Muscle group</dt>
-          <dd><%= exercise.muscle_group.location %></dd>
 
           <dt>Difficulty</dt>
           <dd><%= exercise.difficulty.level %></dd>
 
           <dt>Description</dt>
           <dd><%= exercise.description.capitalize %></dd>
-
         </dl>
+      </table>
+
         <div class="btn-group btn-group-justified">
           <%= link_to exercise_url(exercise), :class => "btn btn-primary" do %>
-            <i class="fa fa-search-plus"></i>
+          <i class="fa fa-search-plus"></i>
           <% end %>
           <%= link_to edit_exercise_url(exercise), :class => "btn btn-warning" do %>
-            <i class="fa fa-edit"></i>
+          <i class="fa fa-edit"></i>
           <% end %>
           <%= link_to exercise_url(exercise), :method => "delete", :data => { :confirm => "Do you really want to delete this exercise?" }, :class => "btn btn-danger" do %>
-            <i class="fa fa-trash-o"></i>
+          <i class="fa fa-trash-o"></i>
           <% end %>
         </div>
       </div>
     </div>
   </div>
-<% end %>
+  <% end %>
 </div>
 
 <!-- JavaScript for Isotope layout and quicksearch -->
