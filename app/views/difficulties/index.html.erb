@@ -16,9 +16,11 @@
       <div class="panel-body">
         <dl>
           <dt>Exercises</dt>
-          <% difficulty.exercises.each do |exercise|%>
-<!-- Create link_to exercise.name, and a path to direct to THAT exercises SHOW page -->
-          <% end %>
+          <ul>
+            <% difficulty.exercises.each do |exercise|%>
+            <li><%= link_to exercise.name, exercise_path(exercise) %></li>
+            <% end %>
+          </ul>
         </dl>
 
 
