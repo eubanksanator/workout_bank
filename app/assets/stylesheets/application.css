@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+
+.exercise-name-title {
+  text-decoration: underline;
+  padding-bottom: 10px;
+}
