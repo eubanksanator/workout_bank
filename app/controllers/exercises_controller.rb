@@ -1,11 +1,11 @@
 class ExercisesController < ApplicationController
+  before_action :find_exercise, only: [:show, :edit, :update, :destroy]
+
   def index
     @exercises = Exercise.all
   end
 
   def show
-    @exercise = Exercise.find(params[:id])
-
   end
 
   def new
@@ -13,13 +13,7 @@ class ExercisesController < ApplicationController
   end
 
   def create
-    @exercise = Exercise.new
-    @exercise.name = params[:name]
-    @exercise.reps = params[:reps]
-    @exercise.sets = params[:sets]
-    @exercise.description = params[:description]
-    @exercise.muscle_group_id = params[:muscle_group_id]
-    @exercise.difficulty_id = params[:difficulty_id]
+    @exercise = Exercise.create(exercise_params)
 
     if @exercise.save
       redirect_to exercises_url, :notice => "Exercise created successfully."
@@ -29,18 +23,16 @@ class ExercisesController < ApplicationController
   end
 
   def edit
-    @exercise = Exercise.find(params[:id])
   end
 
   def update
-    @exercise = Exercise.find(params[:id])
-
-    @exercise.name = params[:name]
-    @exercise.reps = params[:reps]
-    @exercise.sets = params[:sets]
-    @exercise.description = params[:description]
-    @exercise.muscle_group_id = params[:muscle_group_id]
-    @exercise.difficulty_id = params[:difficulty_id]
+    @exercise.update_attributes(exercise_params)
+    # @exercise.name = params[:name]
+    # @exercise.reps = params[:reps]
+    # @exercise.sets = params[:sets]
+    # @exercise.description = params[:description]
+    # @exercise.muscle_group_id = params[:muscle_group_id]
+    # @exercise.difficulty_id = params[:difficulty_id]
 
     if @exercise.save
       redirect_to exercise_url(@exercise.id), :notice => "Exercise updated successfully."
@@ -50,10 +42,18 @@ class ExercisesController < ApplicationController
   end
 
   def destroy
-    @exercise = Exercise.find(params[:id])
-
     @exercise.destroy
-
     redirect_to exercises_url, :notice => "Exercise deleted."
   end
+
+    private
+
+    def exercise_params
+      params.require(:exercise).permit(:name, :reps, :sets, :description, :muscle_group_id, :difficulty_id)
+    end
+    def find_exercise
+      @exercise = Exercise.find(params[:id])
+    end
+
+
 end
