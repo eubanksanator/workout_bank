@@ -65,7 +65,7 @@
               Muscle group
             </label>
             <div class="col-sm-10">
-              <%= select_tag :muscle_group_id, options_from_collection_for_select(MuscleGroup.order(:location), :id, :location, @exercise.muscle_group_id), :class => "form_control" %>
+              <%= collection_select(:exercise, :muscle_group_id, MuscleGroup.all, :id, :location) %>
             </div>
           </div>
 
@@ -75,7 +75,7 @@
               Difficulty
             </label>
             <div class="col-sm-10">
-              <%= select_tag :difficulty_id, options_from_collection_for_select(Difficulty.all, :id, :level, @exercise.difficulty_id), :class => "form_control" %>
+              <%= collection_select(:exercise, :difficulty_id, Difficulty.all, :id, :level, :class => "form-control") %>
             </div>
           </div>
 
